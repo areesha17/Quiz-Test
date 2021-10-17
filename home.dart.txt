@@ -1,0 +1,118 @@
+import 'package:flutter/material.dart';
+
+class home extends StatelessWidget {
+  const home({Key? key}) : super(key: key);
+
+   var names = [
+    "Men's FuelCell Echo",
+    "Men's FuelCell Rebel",
+    "Side Bocks 1200"
+  ];
+  var imgs = [
+    'pic1.jpg',
+    'pic2.jpg',
+    'pic3.jpg'
+  ];
+  var prices = ["\$99.99", "\$129.99", "\$139.99"];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: Icon(Icons.notifications),
+        title: RichText(
+          text: TextSpan(
+            text: "mobi",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+            children: [
+              TextSpan(
+                text: "sport",
+                style: TextStyle(fontSize: 18.0, color: Colors.grey),
+              ),
+            ],
+          ),
+        ),
+        backgroundColor: Colors.white,
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.search, color: Colors.black),
+              onPressed: () {
+                print("Search button clicked");
+              }),
+        ],
+      ),
+      body: Column(
+        children: [
+          ListTile(
+    title: Text(
+      "Running",
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    trailing: Text(
+      "15 results",
+      style: TextStyle(
+        color: Colors.grey,
+        fontSize: 16,
+      ),
+    ),
+  ),
+page("Men's wear", 'pic1.jpg', "\$9999")
+        ],
+      ),
+
+       
+    );
+  }
+}
+
+Widget page(String name, String img, String price) {
+  return ListTile(
+    title: Row(
+      children: [
+        Container(
+          height: 100.0,
+          width: 100,
+          decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage(img), fit: BoxFit.fill)),
+        ),
+        Column(
+          children: [
+            Text(
+              image,
+            ),
+            Row(
+              children: [
+                Icon(Icons.star, size: 20,),
+                Icon(Icons.star, size: 20,),
+                Icon(Icons.star, size: 20,),
+                Icon(Icons.star, size: 20,),
+                
+              ],
+            ),
+            Text(
+              price,
+              style: TextStyle(
+                color: Colors.blueGrey[900],
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
+    trailing: Padding(
+      padding: const EdgeInsets.only(top: 50),
+      child: CircleAvatar(
+        backgroundColor: Colors.orangeAccent,
+        radius: 20,
+        child: Icon(Icons.add_shopping_cart),
+      ),
+    ),
+  );
+}
+
